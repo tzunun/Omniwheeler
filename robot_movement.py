@@ -36,15 +36,33 @@ Four Wheels
 
 Direction of Movement (Robot)
     There are at the moment 11 possible directions of movement for the robot.
-    these can be achieved with 6 functions
     
-    Original:   North   East    North-East  North-West  Clockwise       Full-Stop
-    Inverted:   South   West    South-West  South-East  Anti-Clockwise    N/A
+    North   East    North-East  North-West  Clockwise       Full-Stop
+    South   West    South-West  South-East  Anti-Clockwise    N/A
     """
 
 import time
 import curses
 import GPIO
+
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7,GPIO.OUT)
+GPIO.setup(11,GPIO.OUT)
+GPIO.setup(13,GPIO.OUT)
+GPIO.setup(15,GPIO.OUT)
+GPIO.setup(19,GPIO.OUT)
+GPIO.setup(21,GPIO.OUT)
+GPIO.setup(23,GPIO.OUT)
+GPIO.setup(29,GPIO.OUT)
+GPIO.setup(12,GPIO.OUT)
+GPIO.setup(31, GPIO.OUT)
+GPIO.setup(33, GPIO.IN)
+# GPIO setup(37, GPIO. ?)
+# GPIO setup(3, GPIO. ?)
+# GPIO setup(5, GPIO. ?)
+# GPIO setup(32, GPIO. ?)
+
 
 # Dictionary wheels to easily change GPIOs associated withe the wheels
 def wheels_GPIOs() -> dict:
@@ -74,76 +92,54 @@ def rotation_types() -> dict:
         "anticlockwise": (True, False),
         "stop": (False, False)
     }
-j
 
 # Direction of movement
 
-def north():
-    print("Moving North")
-    direction = ["anticlockwise", "clockwise","clockwise", "anticlockwise" ]
-    move_direction(direction)
+def direction_of_movement(requested_direction: str) -> tuple:
+    """
+        This function expects a north, south, east, etc parameter and returns
+        a tuple with the requested direction of wheel movement.
 
-def north_east():
-    print("Moving North-East")
-    direction = ["anticlockwise", "still","clockwise", "still" ]
-    move_direction(direction)
+        calling: 
+            direction_of_movement("north")
+        will return:
+            ("anticlockwise", "clockwise","clockwise", "anticlockwise" ),
+        which is described as:
+        tuple: (wheel_1_rotation, wheel_2_rotation, wheel_3_rotation, wheel_4_rotation)
+    """
 
-def east():
-    print("Moving East")
-    direction = ["anticlockwise", "anticlockwise","clockwise", "clockwise" ]
-    move_direction(direction)
+    directions = {
+    "north": ("anticlockwise", "clockwise","clockwise", "anticlockwise" ),
+    "north-east": ("anticlockwise", "still","clockwise", "still" ),
+    "east": ("anticlockwise", "anticlockwise","clockwise", "clockwise" ),
+    "south-east": ("still", "anticlockwise","still", "clockwise" ),
+    "south": ("clockwise", "anticlockwise","anticlockwise", "clockwise" ),
+    "south-west": ("clockwise", "still","anticlockwise", "still" ),
+    "west": ("clockwise", "clockwise","anticlockwise", "anticlockwise" ),
+    "north-west": ("still", "clockwise","still", "anticlockwise" ),
+    "clockwise": ("clockwise", "clockwise","clockwise", "clockwise" ),
+    "anticlockwise": ("anticlockwise", "anticlockwise","anticlockwise", "anticlockwise" ),
+    "full_stop": ("still", "still","still", "still" )
+    }
 
-def south_east():
-    print("Moving South-East")
-    direction = ["still", "anticlockwise","still", "clockwise" ]
-    move_direction(direction)
+    return directions[requested_direction]
 
-def south():
-    print("Moving South")
-    direction = ["clockwise", "anticlockwise","anticlockwise", "clockwise" ]
-    move_direction(direction)
+def move_direction(requested_direction_of_movement):
 
-def south_west():
-    print("Moving South-West")
-    direction = ["clockwise", "still","anticlockwise", "still" ]
-    move_direction(direction)
-
-def west():
-    print("Moving West")
-    direction = ["clockwise", "clockwise","anticlockwise", "anticlockwise" ]
-    move_direction(direction)
-
-def north_west():
-    print("Moving North-West")
-    direction = ["still", "clockwise","still", "anticlockwise" ]
-    move_direction(direction)
-
-def spin_clockwise():
-    print("Moving Clockwise")
-    direction = ["clockwise", "clockwise","clockwise", "clockwise" ]
-    move_direction(direction)
-
-def spin_anticlockwise():
-    print("Moving Antilockwise")
-    direction = ["anticlockwise", "anticlockwise","anticlockwise", "anticlockwise" ]
-    move_direction(direction)
-
-def full_stop():
-    print("Full Stopp")
-    direction = ["still", "still","still", "still" ]
-    move_direction(direction)
-
-
-def move_direction(direction):
     wheels = wheels_GPIOs()  # Wheels dict
     rotation = rotation_types() # Rotation dict
+    direction = direction_of_movement(requested_direction_of_movement)
 
     for index,wheel in enumerate(wheels):
         motor_gpio = wheels[wheel]["motor_gpio"]
         rotation_gpio = wheels[wheel]["rotation_gpio"]
         rotation_type = rotation[direction[index]]  # clockwise, anticlockwise, still
-          ...:
         #print(wheel, wheels[wheel], direction[index], rotation[direction[index]])
         print(wheel, ":")
         print("GPIO.output({}, {})".format(motor_gpio,rotation_type[0]))
         print("GPIO.output({}, {})".format(rotation_gpio, rotation_type[1]))
+
+if __name__== "__main__":
+    while True:
+        direction = input("Please enter the requested direction of movement, north, south, etc,.: \n")
+        move_direction(direction)
