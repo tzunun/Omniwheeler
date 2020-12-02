@@ -47,14 +47,19 @@ import GPIO
 
 
 GPIO.setmode(GPIO.BOARD)
+# Wheel 1
 GPIO.setup(7,GPIO.OUT)
 GPIO.setup(11,GPIO.OUT)
+# Wheel 2
 GPIO.setup(13,GPIO.OUT)
 GPIO.setup(15,GPIO.OUT)
+# Wheel 3
 GPIO.setup(19,GPIO.OUT)
 GPIO.setup(21,GPIO.OUT)
+# Wheel 4
 GPIO.setup(23,GPIO.OUT)
 GPIO.setup(29,GPIO.OUT)
+
 GPIO.setup(12,GPIO.OUT)
 GPIO.setup(31, GPIO.OUT)
 GPIO.setup(33, GPIO.IN)
@@ -134,7 +139,6 @@ def move_direction(requested_direction_of_movement):
         motor_gpio = wheels[wheel]["motor_gpio"]
         rotation_gpio = wheels[wheel]["rotation_gpio"]
         rotation_type = rotation[direction[index]]  # clockwise, anticlockwise, still
-        #print(wheel, wheels[wheel], direction[index], rotation[direction[index]])
         print(wheel, ":")
         print("GPIO.output({}, {})".format(motor_gpio,rotation_type[0]))
         print("GPIO.output({}, {})".format(rotation_gpio, rotation_type[1]))
