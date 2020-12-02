@@ -1,0 +1,41 @@
+Wheel Movement
+    from observation there are only three whell spining states which dictate the direction that
+    the robot moves.
+        ACW = Anti-clockwise
+        CW = Clockwise
+        Still = No movement.
+
+Four Wheels
+    These are controlled by GPIO indicating motor state (on/off) and rotation
+    ACW/CW.
+
+    Wheel 1:
+        Motor: ON/OFF 
+            GPIO 7
+        Rotation: ACW/CW
+            GPIO 11
+
+    Wheel 2:
+        Motor: ON/OFF 
+            GPIO 13
+        Rotation: ACW/CW
+            GPIO 15
+
+    Wheel 3:
+        Motor: ON/OFF 
+            GPIO 19
+        Rotation: ACW/CW
+            GPIO 21
+        
+    Wheel 4:
+        Motor: ON/OFF 
+            GPIO 23
+        Rotation: ACW/CW
+            GPIO 29
+
+Direction of Movement (Robot)
+    There are at the moment 11 possible directions of movement for the robot.
+    these can be achieved with 6 functions
+    
+    Original:   North   East    North-East  North-West  Clockwise       Full-Stop
+    Inverted:   South   West    South-West  South-East  Anti-Clockwise    N/A
