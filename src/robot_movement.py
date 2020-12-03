@@ -43,30 +43,29 @@ Direction of Movement (Robot)
 
 import time
 import curses
-import RPI.GPIO as GPIO
 
-
-GPIO.setmode(GPIO.BOARD)
-# Wheel 1
-GPIO.setup(7,GPIO.OUT)
-GPIO.setup(11,GPIO.OUT)
-# Wheel 2
-GPIO.setup(13,GPIO.OUT)
-GPIO.setup(15,GPIO.OUT)
-# Wheel 3
-GPIO.setup(19,GPIO.OUT)
-GPIO.setup(21,GPIO.OUT)
-# Wheel 4
-GPIO.setup(23,GPIO.OUT)
-GPIO.setup(29,GPIO.OUT)
-
-GPIO.setup(12,GPIO.OUT)
-GPIO.setup(31, GPIO.OUT)
-GPIO.setup(33, GPIO.IN)
-# GPIO setup(37, GPIO. ?)
-# GPIO setup(3, GPIO. ?)
-# GPIO setup(5, GPIO. ?)
-# GPIO setup(32, GPIO. ?)
+def set_gpio_mode():
+    GPIO.setmode(GPIO.BOARD)
+    # Wheel 1
+    GPIO.setup(7,GPIO.OUT)
+    GPIO.setup(11,GPIO.OUT)
+    # Wheel 2
+    GPIO.setup(13,GPIO.OUT)
+    GPIO.setup(15,GPIO.OUT)
+    # Wheel 3
+    GPIO.setup(19,GPIO.OUT)
+    GPIO.setup(21,GPIO.OUT)
+    # Wheel 4
+    GPIO.setup(23,GPIO.OUT)
+    GPIO.setup(29,GPIO.OUT)
+    
+    GPIO.setup(12,GPIO.OUT)
+    GPIO.setup(31, GPIO.OUT)
+    GPIO.setup(33, GPIO.IN)
+    # GPIO setup(37, GPIO. ?)
+    # GPIO setup(3, GPIO. ?)
+    # GPIO setup(5, GPIO. ?)
+    # GPIO setup(32, GPIO. ?)
 
 
 # Dictionary wheels to easily change GPIOs associated withe the wheels
@@ -144,6 +143,9 @@ def move_direction(requested_direction_of_movement):
         print("GPIO.output({}, {})".format(rotation_gpio, rotation_type[1]))
 
 if __name__== "__main__":
+    # This will run on a Rasberry Pi.  WIll cause error
+    # On Desktop
+    import RPI.GPIO as GPIO
     while True:
         direction = input("Please enter the requested direction of movement, north, south, etc,.: \n")
         move_direction(direction)
