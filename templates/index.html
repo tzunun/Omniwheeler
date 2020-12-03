@@ -36,7 +36,7 @@
             <div class="column"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-caret-up fa-10x"></i>
+              <i class="fas fa-caret-up fa-10x" onclick="myFunction('north')"></i>
               </span>
             </div>
             <div class="column"></div>
@@ -46,13 +46,13 @@
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-135"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-135" onclick="myFunction('north-east')"></i>
               </span>
             </div>
             <div class="column is-7"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-225"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-225" onclick="myFunction('north-west')"></i>
               </span>
             </div>
           </div>
@@ -77,19 +77,19 @@
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-left fa-10x"></i>
+                  <i class="fas fa-caret-left fa-10x" onclick="myFunction('east')"></i>
               </span>
             </div>
             <div class="column is-5"></div>
             <div class="column is-1">
               <span class="icon has-text-danger">
-                  <i class="fas fa-stop fa-6x"></i>
+                  <i class="fas fa-stop fa-6x" onclick="myFunction('stop')"></i>
               </span>
             </div>
             <div class="column is-5"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-right fa-10x"></i>
+                  <i class="fas fa-caret-right fa-10x" onclick="myFunction('west')"></i>
               </span>
             </div>
           </div>
@@ -114,13 +114,13 @@
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-45"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-45" onclick="myFunction('south-east')"></i>
               </span>
             </div>
             <div class="column is-7"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-315"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-315" onclick="myFunction('south-west')"></i>
               </span>
             </div>
           </div>
@@ -130,7 +130,7 @@
             <div class="column"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-caret-down fa-10x"></i>
+              <i class="fas fa-caret-down fa-10x" onclick="myFunction('south')"></i>
               </span>
             </div>
             <div class="column"></div>
@@ -157,21 +157,27 @@
             <div class="column"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-sync-alt fa-6x" data-fa-transform="flip-v"></i>
+              <i class="fas fa-sync-alt fa-4x" onclick="myFunction('anticlockwise')" data-fa-transform="flip-v"></i>
               </span>
             </div>
             <div class="column is-7"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-sync-alt fa-6x"></i>
+              <i class="fas fa-sync-alt fa-4x" onclick="myFunction('clockwise')"></i>
               </span>
             </div>
             <div class="column"></div>
           </div> 
         </div> <!--Column Narrow ends here-->
       </div> <!--Main Columns ends here-->
+      <p id="demo"></p>
 
     </div> <!--Container ends here-->
   </section>
+  <script>
+    function myFunction(direction) {
+      document.getElementById("demo").innerHTML = direction
+    }
+  </script>
   </body>
 </html>
