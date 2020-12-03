@@ -39,3 +39,15 @@ Direction of Movement (Robot)
     
     Original:   North   East    North-East  North-West  Clockwise       Full-Stop
     Inverted:   South   West    South-West  South-East  Anti-Clockwise    N/A
+
+Regarding the GPIO controls
+    I have started thinking about using gpiozero for the control
+
+and I have also started thinking about using docker to run the robot
+
+instructions on how to install python3 and the environment required
+to run this application.
+
+miniforge location of ARM64 RaspberryPi python3
+https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh
+

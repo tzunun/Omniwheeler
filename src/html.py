@@ -27,6 +27,7 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
-        rotation = direction_of_movement(data)
+        #rotation = direction_of_movement(data)
+        rotation = str(direction_of_movement(data))
         print(data, rotation, type(rotation))
-        await websocket.send_text(rotation)
+        await websocket.send_text(f"The wheel Rotation is: {rotation}")

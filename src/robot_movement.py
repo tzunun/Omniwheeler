@@ -94,7 +94,7 @@ def rotation_types() -> dict:
         # rotation(motor_on, rotation_direction)
         "clockwise": (True, True),
         "anticlockwise": (True, False),
-        "stop": (False, False)
+        "still": (False, False)
     }
 
 # Direction of movement

@@ -179,7 +179,7 @@
     ws.onmessage = function(event) {
       var result = document.getElementById('result')
       var content = document.createTextNode(event.data)
-      result.innerHTML = event.data
+      result.innerHTML = String(event.data)
     };
     function setDirectionOfMovement(direction) {
       ws.send(direction)
