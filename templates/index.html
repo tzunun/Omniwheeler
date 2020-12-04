@@ -1,15 +1,3 @@
-
-
-<div class="features">
-  <div class="container">
-    <div class="columns is-centered is-vcentered is-mobile">
-      <div class="column is-narrow has-text-centered">
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,26 +18,22 @@
           <p class="subtitle">
             OmniWheeler Directional Control
           </p>
+          <br>
 
-          <!--North Icon--> 
-          <div class="columns is-mobile is-centered">
-            <div class="column"></div>
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-              <i class="fas fa-caret-up fa-10x" onclick="setDirectionOfMovement('north')"></i>
-              </span>
-            </div>
-            <div class="column"></div>
-          </div>
-          
-          <!--North-East and North-West Icons--> 
+          <!--North-East, North, North-West Icons--> 
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
                   <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-135" onclick="setDirectionOfMovement('north-east')"></i>
               </span>
             </div>
-            <div class="column is-7"></div>
+            <div class="column is-4"></div>
+            <div class="column is-1">
+              <span class="icon has-text-primary">
+              <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-180" onclick="setDirectionOfMovement('north')"></i>
+              </span>
+            </div>
+            <div class="column is-4"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
                   <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-225" onclick="setDirectionOfMovement('north-west')"></i>
@@ -57,67 +41,41 @@
             </div>
           </div>
 
-<!--Invisible columns to get proper proportions-->
-           <!--North-East and North-West Icons--> 
-          <div class="columns is-mobile is-invisible">
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-135"></i>
-              </span>
-            </div>
-            <div class="column is-6"></div>
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-225"></i>
-              </span>
-            </div>
-          </div>
-
-          <!--East STOP  West Icons--> 
+          <!--East, STOP, West Icons--> 
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-left fa-10x" onclick="setDirectionOfMovement('east')"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-90" onclick="setDirectionOfMovement('east')"></i>
               </span>
             </div>
-            <div class="column is-5"></div>
+            <div class="column is-4"></div>
             <div class="column is-1">
               <span class="icon has-text-danger">
                   <i class="fas fa-stop fa-6x" onclick="setDirectionOfMovement('full_stop')"></i>
               </span>
             </div>
-            <div class="column is-5"></div>
+            <div class="column is-4"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-                  <i class="fas fa-caret-right fa-10x" onclick="setDirectionOfMovement('west')"></i>
+                  <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-270" onclick="setDirectionOfMovement('west')"></i>
               </span>
             </div>
           </div>
 
-<!--Invisible columns to get proper proportions-->
-          <!--North-East and North-West Icons--> 
-          <div class="columns is-mobile is-invisible">
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-135"></i>
-              </span>
-            </div>
-            <div class="column is-7"></div>
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-225"></i>
-              </span>
-            </div>
-          </div>
-          
-          <!--South-East and South-West Icons--> 
+          <!--South-East, South, South-West Icons--> 
           <div class="columns is-mobile is-centered">
             <div class="column is-1">
               <span class="icon has-text-primary">
                   <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-45" onclick="setDirectionOfMovement('south-east')"></i>
               </span>
             </div>
-            <div class="column is-7"></div>
+            <div class="column is-4"></div>
+            <div class="column is-1">
+              <span class="icon has-text-primary">
+              <i class="fas fa-caret-down fa-10x" onclick="setDirectionOfMovement('south')"></i>
+              </span>
+            </div>
+            <div class="column is-4"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
                   <i class="fas fa-caret-down fa-10x" data-fa-transform="rotate-315" onclick="setDirectionOfMovement('south-west')"></i>
@@ -125,45 +83,18 @@
             </div>
           </div>
 
-          <!--South Icon--> 
-          <div class="columns is-mobile is-centered">
-            <div class="column"></div>
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-              <i class="fas fa-caret-down fa-10x" onclick="setDirectionOfMovement('south')"></i>
-              </span>
-            </div>
-            <div class="column"></div>
-          </div> 
-
-<!--Invisible columns to get proper proportions-->
-          <!--North-East and North-West Icons--> 
-          <div class="columns is-mobile is-invisible">
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-135"></i>
-              </span>
-            </div>
-            <div class="column is-7"></div>
-            <div class="column is-1">
-              <span class="icon has-text-primary">
-                  <i class="fas fa-caret-down fa-9x" data-fa-transform="rotate-225"></i>
-              </span>
-            </div>
-          </div>
-          
            <!--Clockwise, Anticlockwise Icons--> 
            <div class="columns is-mobile is-centered">
             <div class="column"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-sync-alt fa-4x" onclick="setDirectionOfMovement('anticlockwise')" data-fa-transform="flip-v"></i>
+              <i class="fas fa-sync-alt fa-5x" onclick="setDirectionOfMovement('anticlockwise')" data-fa-transform="flip-v"></i>
               </span>
             </div>
-            <div class="column is-7"></div>
+            <div class="column is-5"></div>
             <div class="column is-1">
               <span class="icon has-text-primary">
-              <i class="fas fa-sync-alt fa-4x" onclick="setDirectionOfMovement('clockwise')"></i>
+              <i class="fas fa-sync-alt fa-5x" onclick="setDirectionOfMovement('clockwise')"></i>
               </span>
             </div>
             <div class="column"></div>
