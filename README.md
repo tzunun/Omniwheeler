@@ -10,6 +10,9 @@ In other words, the wheels’ axel is fixed.
 
 *Omni wheels* can generate active traction when rotating around their natural axis and be passive (present no resistance) when dragged in the perpendicular direction.
 
+![Omniwheeler Diagram](./assets/omniwheeler-diagram.png)
+
+
 This geometry allows any platform supported by four omni wheels in a diamond configuration (see image) to move in any direction maintaining the same heading, or spin on their Z axis and rotate its heading at will.
 
 In particular, they offer the challenge of programming the differential rotation of its wheels to follow ANY path at ANY speed at ANY heading. This is particularly advantageous if you need to keep your aim in any particular direction while following the path indicated by the autonomous navigation system.
