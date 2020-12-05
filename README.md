@@ -141,6 +141,8 @@ From the terminal run the following command (***Do not make this file executable
 
 `bash ~/Downloads/Miniforge3-Linux-aarch64.sh`
 
+Accept the default settings for the installation of Miniforge.
+
 
 ___
 # ***`Instructions under this line are incomplete as they have not been tested yet!!!`***
@@ -148,10 +150,28 @@ ___
 
 **Activate Miniforge**
 
+The easiest way to activate the base environment is to close and open the terminal.  You may also run 
+the following command from the command line:
+`source ~/.bashrc`
 
-**Create the Python 3 environment, using the *omniwheeler.yml* file.**
+The command prompt should start with '(base)' for example:
+
+`(base) username@usercomputer:$`
+
+
+**Create the Python 3 environment, using the *omniwheeler.txt* file.**
+`conda create --name omniwheeler --file omniwheeler.txt`
 
 **To Launch the Web App:**
+
+Activate the omniwheeler environment:
+`conda activate omniwheeler`
+
+Once active the omniwheeler environment the prompt should start with:
+`(omniwheeler) username@usercomputer:~$`
+
+Install RPI.GPIO using pip:
+`pip install RPI.GPIO`
     
     Make sure that the omniwheeler environment is active and that you are inside the Omniwheeler directory.
 
