@@ -79,8 +79,10 @@ Motor control signal is achieved through PID (Proportional, Integral, Derivative
 ***Software Decisions***
 
 
-**Operating System:** Ubuntu 18.04 LTS
-with Ubuntu Mate for RPI as an alternative.
+**Operating System:** Althought Ubuntu 18.04 LTS is the target OS.
+For the initial testing I used Ubuntu Mate 64bit for RPI.  This can be downloaded at: 
+
+https://ubuntu-mate.org/download/arm64/focal/
 
 **Programing Language:** Python3 and JavaScript for the web application.
 
@@ -152,6 +154,7 @@ ___
 
 The easiest way to activate the base environment is to close and open the terminal.  You may also run 
 the following command from the command line:
+
 `source ~/.bashrc`
 
 The command prompt should start with '(base)' for example:
@@ -160,17 +163,21 @@ The command prompt should start with '(base)' for example:
 
 
 **Create the Python 3 environment, using the *omniwheeler.txt* file.**
+
 `conda create --name omniwheeler --file omniwheeler.txt`
 
 **To Launch the Web App:**
 
 Activate the omniwheeler environment:
+
 `conda activate omniwheeler`
 
 Once active the omniwheeler environment the prompt should start with:
+
 `(omniwheeler) username@usercomputer:~$`
 
 Install RPI.GPIO using pip:
+
 `pip install RPI.GPIO`
     
     Make sure that the omniwheeler environment is active and that you are inside the Omniwheeler directory.

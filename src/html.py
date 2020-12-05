@@ -1,10 +1,13 @@
 from fastapi import FastAPI, Request, WebSocket
 from fastapi.templating import Jinja2Templates
 from src.robot_movement import direction_of_movement
+from src.robot_movement import move_direction
+from src.robot_movement import set_gpio_mode
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates/")
 
+set_gpio_mode()  
 
 @app.get('/')
 def omniwheeler_app():
@@ -27,7 +30,9 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
-        #rotation = direction_of_movement(data)
+        rotation = direction_of_movement(data)
+        # Move the wheels acw, cw, still to head in a specific direction NSEW
+        move_direction(rotation)   
         rotation = str(direction_of_movement(data))
         print(data, rotation, type(rotation))
         await websocket.send_text(f"The wheel Rotation is: {rotation}")

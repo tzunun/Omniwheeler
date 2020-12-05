@@ -1,5 +1,8 @@
 import time
+import RPi.GPIO as GPIO
+# This import will be removed
 import curses
+
 
 def set_gpio_mode():
     GPIO.setmode(GPIO.BOARD)
@@ -102,7 +105,7 @@ def move_direction(requested_direction_of_movement):
 if __name__== "__main__":
     # This will run on a Rasberry Pi.  WIll cause error
     # On Desktop
-    import RPI.GPIO as GPIO
+    set_gpio_mode()
     while True:
         direction = input("Please enter the requested direction of movement, north, south, etc,.: \n")
         move_direction(direction)
