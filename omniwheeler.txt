@@ -1,0 +1,42 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: linux-aarch64
+@EXPLICIT
+https://conda.anaconda.org/conda-forge/linux-aarch64/ca-certificates-2020.11.8-h4fd8a4c_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/ld_impl_linux-aarch64-2.35.1-h36823c2_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/libgomp-9.3.0-h8ab15db_17.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/libstdcxx-ng-9.3.0-h7a64470_17.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/tzdata-2020d-h516909a_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-1_gnu.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/libgcc-ng-9.3.0-h8ab15db_17.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/libffi-3.3-h884eca8_1.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/ncurses-6.2-h7fd3ca4_4.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/openssl-1.1.1h-h2923d19_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/xz-5.2.5-h6dd45c4_1.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/yaml-0.2.5-h516909a_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/zlib-1.2.11-h516909a_1009.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/readline-8.0-h607064a_2.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/tk-8.6.10-he2b207e_1.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/sqlite-3.34.0-h43e6a2a_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/python-3.9.0-h3bd6a85_5_cpython.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/click-7.1.2-pyh9f0ad1d_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/h11-0.11.0-pyh9f0ad1d_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/python_abi-3.9-1_cp39.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/six-1.15.0-pyh9f0ad1d_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/starlette-base-0.13.6-py_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/watchgod-0.6-py_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/wheel-0.36.1-pyhd3deb0d_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/certifi-2020.11.8-py39ha65689a_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/httptools-0.1.1-py39h14843e3_1.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/markupsafe-1.1.1-py39h91590af_2.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/pydantic-1.7.3-py39h14843e3_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/python-dotenv-0.15.0-pyhd8ed1ab_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/python-multipart-0.0.5-py_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/pyyaml-5.3.1-py39h91590af_1.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/uvloop-0.14.0-py39h14843e3_2.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/websockets-8.1-py39h07f9747_2.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/fastapi-0.62.0-pyhd8ed1ab_0.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/setuptools-49.6.0-py39he6e36c9_2.tar.bz2
+https://conda.anaconda.org/conda-forge/linux-aarch64/uvicorn-0.12.3-py39ha65689a_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/jinja2-2.11.2-pyh9f0ad1d_0.tar.bz2
+https://conda.anaconda.org/conda-forge/noarch/pip-20.3.1-pyhd8ed1ab_0.tar.bz2
