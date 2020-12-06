@@ -89,23 +89,83 @@ def direction_of_movement(requested_direction: str) -> tuple:
     return directions[requested_direction]
 
 def move_direction(requested_direction_of_movement):
+    print("requested_direction_of_movement is: ", requested_direction_of_movement)
+
 
     wheels = wheels_GPIOs()  # Wheels dict
     rotation = rotation_types() # Rotation dict
+    # direction now becomes ("clockwise", "still", "clockwise", "still")
     direction = direction_of_movement(requested_direction_of_movement)
+    print(direction)
 
     for index,wheel in enumerate(wheels):
         motor_gpio = wheels[wheel]["motor_gpio"]
         rotation_gpio = wheels[wheel]["rotation_gpio"]
         rotation_type = rotation[direction[index]]  # clockwise, anticlockwise, still
-        print(wheel, ":")
-        print("GPIO.output({}, {})".format(motor_gpio,rotation_type[0]))
-        print("GPIO.output({}, {})".format(rotation_gpio, rotation_type[1]))
+        #print(wheel, ":")
+        #print("GPIO.output({}, {})".format(motor_gpio,rotation_type[0]))
+        #print("GPIO.output({}, {})".format(rotation_gpio, rotation_type[1]))
+
+        # This part of the code turns the motor on, and sets the direction of wheel rotation
+        # This receives a tuple (motor state, rotation anticlockwise/clockwise/still)
+        GPIO.output(motor_gpio, rotation_type[0])
+        GPIO.output(rotation_gpio, rotation_type[1])
+
 
 if __name__== "__main__":
-    # This will run on a Rasberry Pi.  WIll cause error
-    # On Desktop
+
     set_gpio_mode()
+
+    def match_key_direction(pressed_char: str) -> str:
+        print("inside match_key_direction", pressed_char)
+        
+        key_direction = {
+            "108": "clockwise",
+            "114": "anticlockwise",
+            "115": "full_stop",
+            "116": "north-east",
+            "101": "north-west",
+            "98": "south-east",
+            "99": "south-west",
+            "259": "north",
+            "258": "south",
+            "260": "west",
+            "261": "east",
+        }
+
+        for key in key_direction.keys():
+            if key == pressed_char:
+                return key_direction[key]
+        return "not found"
+
+
     while True:
-        direction = input("Please enter the requested direction of movement, north, south, etc,.: \n")
-        move_direction(direction)
+                    # Identify terminal
+        screen = curses.initscr()
+        # Clear the screen
+        # No keystroked echoed to the console
+        curses.noecho()
+        screen.refresh()
+        # Enter/Return not required to register the key pressed
+        curses.cbreak()
+        screen.keypad(True)
+
+        pressed_key = screen.getch()
+
+        if pressed_key == ord('q'):
+            break
+        else:
+            curses.nocbreak()
+            screen.keypad(0)
+            curses.echo()           # basically use the keypressed integer to get the direction
+
+            x = match_key_direction(str(pressed_key)) 
+            if x != "not found":
+                move_direction(match_key_direction(str(pressed_key)))
+
+    curses.nocbreak()  # Turn off cbreak mode
+    curses.echo()  # Turn echo on again
+    curses.curs_set(1)  # turn cursor back on 
+    screen.keypad(0)  # Turn off keypad keys
+    curses.endwin()
+    GPIO.cleanup()
