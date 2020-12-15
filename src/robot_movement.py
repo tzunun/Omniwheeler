@@ -161,6 +161,7 @@ if __name__== "__main__":
 
             x = match_key_direction(str(pressed_key)) 
             if x != "not found":
+                time.sleep(.3)  # Sleeping 300ms, sleep() takes numbers as seconds.
                 move_direction(match_key_direction(str(pressed_key)))
 
     curses.nocbreak()  # Turn off cbreak mode
