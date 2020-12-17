@@ -1,6 +1,5 @@
 import time
 import RPi.GPIO as GPIO
-# This import will be removed
 import curses
 
 
@@ -88,7 +87,7 @@ def direction_of_movement(requested_direction: str) -> tuple:
 
     return directions[requested_direction]
 
-def move_direction(requested_direction_of_movement):
+def move_direction(requested_direction_of_movement: str):
     print("requested_direction_of_movement is: ", requested_direction_of_movement)
 
 
@@ -96,7 +95,7 @@ def move_direction(requested_direction_of_movement):
     rotation = rotation_types() # Rotation dict
     # direction now becomes ("clockwise", "still", "clockwise", "still")
     direction = direction_of_movement(requested_direction_of_movement)
-    print(direction)
+    print(type(direction), direction)
 
     for index,wheel in enumerate(wheels):
         motor_gpio = wheels[wheel]["motor_gpio"]
@@ -117,7 +116,7 @@ if __name__== "__main__":
     set_gpio_mode()
 
     def match_key_direction(pressed_char: str) -> str:
-        print("inside match_key_direction", pressed_char)
+        #print("inside match_key_direction", pressed_char)
         
         key_direction = {
             "108": "clockwise",

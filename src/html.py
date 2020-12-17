@@ -30,9 +30,12 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         data = await websocket.receive_text()
+        print("\ndata:\n", data, '\n')
+        # rotation is a temp variable to print data. Calling move_direction(data)
+        # Should be enough to move the omniwheeler
         rotation = direction_of_movement(data)
         # Move the wheels acw, cw, still to head in a specific direction NSEW
-        move_direction(rotation)   
+        #move_direction(rotation)   
         rotation = str(direction_of_movement(data))
         print(data, rotation, type(rotation))
         await websocket.send_text(f"The wheel Rotation is: {rotation}")
