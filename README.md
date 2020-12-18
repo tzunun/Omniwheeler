@@ -246,5 +246,7 @@ In browser navigate to either :
     localhost:8000/index
     raspberry_pi_IP_address:8000
 
-<span style="color:green">If you don't know the RPI ip address, if it is connected already you can use `ping -c 1 raspberrypi.local` to try to obtain the ip address</span>
+<span style="color:blue">If you don't know the RPI ip address, if it is connected already you can use the following command to try to obtain the ip address.</span>
+
+`ping -c 1 raspberrypi.local` 
 
