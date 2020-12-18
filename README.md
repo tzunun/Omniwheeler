@@ -84,8 +84,11 @@ For the initial testing I used Ubuntu Mate 64bit for RPI.  This can be downloade
 
 https://ubuntu-mate.org/download/arm64/focal/
 
-**Programing Language:** Python3 and JavaScript for the web application.
+***<span style="color:red">
+Raspbian 32bit instructions are provided at the end of this file, MiniForge is 64bit and MiniConda is not compiled for ARM processors.  Therefore venv and pip are the better options if you plan to use Raspbian.
+</span>***
 
+**Programing Language:** Python3 and JavaScript for the web application.
 
 **Miniforge** is used to manage the Python environments and to install the libraries required to program the *omniwheeler*. Miniforge is similar to Anaconda's Distribution of Python's tool Miniconda, with the notable difference that Miniforge is compiled to also run on ARM64 devices such as the Raspberry Pi.  Using environments would allow for a more granular control of the Python 3 software used on the project as well as facilitate for others to recreate this environment. 
 
@@ -199,3 +202,49 @@ ___
 
 The remote control functionality 
 has not been fully implemented.  The Web App does communicate with the backend (Python 3 code that controls the Omniwheeler.)
+
+If using venv for a Python3 env you will have to install websockets using pip.
+
+conda did not have this issue. (not quite sure about this.  I will test this in the future)
+
+The reason I would used conda is because of certain AI tasks that will be implementd in the future.
+
+# Raspbian Instructions.
+
+Clone the repository.
+
+`git clone https://github.com/tzunun/Omniwheeler.git`
+
+Create a virtual environment.
+
+`python3 -m venv omniwheeler`
+
+Activate the environment
+
+`source omniwheeler/bin/activate`
+
+Your prompt should look similar to this.
+
+`(omniwheeler) pi@raspberrypi:~ $`
+
+<span style="color:orange">There are now two omniwheeler folders on your RPI, ***omniwheeler*** is for the virtual environment.  ***Omniwheeler*** is the repository with the code.</span>
+
+Use pip to install the required libraries.
+
+`pip install fastapi jinja2 uvicorn websockets RPi.GPIO`
+
+Navigate to the directory Omniwheeler
+
+`cd Omniwheeler`
+
+Run the app.  (The reload is to watch for code changes and implement them right away.  You may obmit --reload)
+
+`uvicorn src.html:app --host 0.0.0.0 --reload`
+
+In browser navigate to either :
+
+    localhost:8000/index
+    raspberry_pi_IP_address:8000
+
+<span style="color:green">If you don't know the RPI ip address, if it is connected already you can use `ping -c 1 raspberrypi.local` to try to obtain the ip address</span>
+
