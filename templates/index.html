@@ -106,7 +106,7 @@
     </div> <!--Container ends here-->
   </section>
   <script>
-    var ws = new WebSocket("ws://localhost:8000/ws");
+    var ws = new WebSocket("ws://0.0.0.0:8000/ws");
     ws.onmessage = function(event) {
       var result = document.getElementById('result')
       var content = document.createTextNode(event.data)

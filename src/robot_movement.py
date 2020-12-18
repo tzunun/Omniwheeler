@@ -88,14 +88,13 @@ def direction_of_movement(requested_direction: str) -> tuple:
     return directions[requested_direction]
 
 def move_direction(requested_direction_of_movement: str):
-    print("requested_direction_of_movement is: ", requested_direction_of_movement)
-
+    # This line is 
+    print("Inside move_direction, moving: ", requested_direction_of_movement)
 
     wheels = wheels_GPIOs()  # Wheels dict
     rotation = rotation_types() # Rotation dict
     # direction now becomes ("clockwise", "still", "clockwise", "still")
     direction = direction_of_movement(requested_direction_of_movement)
-    print(type(direction), direction)
 
     for index,wheel in enumerate(wheels):
         motor_gpio = wheels[wheel]["motor_gpio"]
